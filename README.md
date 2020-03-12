@@ -1,4 +1,4 @@
-## Initial steps:
+# Initial steps:
     In order to use the Router, 
     you must first register the RouterModule from the @angular/router package. 
     Define an array of appRoutes, and pass them to the RouterModule.forRoot() method.
@@ -61,7 +61,7 @@
     - resolver's result will be available in ActivatedRoute.data
 
 
-### Best practices:
+# Best practices:
 -  AppRoutingModule
     - configure the router in a separate, top-level module that is dedicated to routing and imported by the root AppModule.  - `RouterModule.forRoot`
       - Only register top-level routes here,
