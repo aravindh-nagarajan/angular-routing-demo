@@ -1,0 +1,33 @@
+.app-books {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.app-books__book {
+    width: 300px;
+    height: 25px;
+    background-color: #f3e1d8;
+    text-align: left;
+    padding: 5px;
+    border: 1px outset;
+}
+
+.app-books__book:hover {
+  background-color: #f1b493;
+}
+
+.app-books__book-id {
+  padding: 5px;
+}
+
+button {
+  width: 100%;
+  height: 100%;
+  background-color: inherit;
+  border: 0;
+  cursor: pointer;
+}

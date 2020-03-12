@@ -23,7 +23,7 @@ a {
 
 .app-button {
   padding: 10px;
-  background-color: #f3e1d8;
+  background-color: #f3e1d8;;
   cursor: pointer;
   text-decoration: none;
   color: black;
@@ -40,4 +40,8 @@ a {
 .nav {
   margin: 15px;
   display: inline;
+}
+
+.club-options {
+  text-align: center;
 }

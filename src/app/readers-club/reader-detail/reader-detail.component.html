@@ -1,0 +1,16 @@
+<div *ngIf="reader" >
+  <h4> #{{reader.id}} : {{ reader.name }}</h4>
+  <table>
+    <tr>
+      <td><span>Base location: </span></td>
+      <td>
+        <a routerLink="/readers-club/locations/{{reader.location}}">{{reader.location}}</a>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<button
+  class="go-back-btn"
+  (click)="goBack()"
+>go back</button>

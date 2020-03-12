@@ -1,0 +1,14 @@
+<h4>Readers from {{ locationParam | uppercase}}</h4>
+<ul
+  class="app-books"
+  *ngFor="let reader of readers"
+>
+  <li class="app-books__book">
+    <a routerLink="/readers-club/readers/{{reader.id}}">
+      <span class="app-books__book-id">#{{reader.id}}</span>
+      {{reader.name}}
+      <span> {{ reader.new ? '(New Guy)' : '' }} </span>
+    </a>
+  </li>
+</ul>
+

@@ -1,0 +1,39 @@
+.app-books {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.app-books__book {
+    width: 300px;
+    height: 25px;
+    background-color: #f3e1d8;
+    text-align: left;
+    padding: 5px;
+    border: 1px outset;
+}
+
+.app-books__book:hover {
+  background-color: #f1b493;
+}
+
+.app-books__book-id {
+  padding: 5px;
+}
+
+.go-back-btn {
+  padding: 10px;
+  width: 12%;
+  margin: 5px 0;
+  background-color: #f3e1d8;
+  cursor: pointer;
+  border: 0;
+}
+
+.go-back-btn:hover {
+  background-color: #f1b493;
+}
+

@@ -1,0 +1,12 @@
+<h4>Reader locations</h4>
+<ul
+  class="app-books"
+  *ngFor="let location of locations"
+>
+  <li class="app-books__book">
+    <a routerLink="/readers-club/locations/{{location}}">
+      {{location}}
+    </a>
+  </li>
+</ul>
+

@@ -1,0 +1,10 @@
+<h4>Auth levels</h4>
+<ul
+  class="app-books"
+  *ngFor="let level of authLevels"
+>
+  <li class="app-books__book">
+      <button (click)="updateAuthLevel(level.key)">{{level.label}}</button>
+  </li>
+</ul>
+
