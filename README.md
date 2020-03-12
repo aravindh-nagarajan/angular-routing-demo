@@ -29,11 +29,11 @@
 
     - [routerLinkActiveOptions] input binding with the { exact: true } expression. By using { exact: true }, 
     a given RouterLink will only be active if its URL is an exact match to the current URL instead of making all `parent-child` active.
+        
+    - router.navigate for manual routing (similar to $state.go)
 
 ### data object in router:
     - Only the relevant component can get its data object from 'ActivatedRoute`.
-
-- router.navigate for manual routing (similar to $state.go)
 
 ### ActivatedRoute
     - The route path and parameters are available through an injected router service called the ActivatedRoute.
@@ -51,23 +51,22 @@
     ```
 
 ### Route guards
-  - To control access to current path and its children
-  - To resolve data
+    - To control access to current path and its children
+    - To resolve data
 
-  1) `CanActivate`: we can have permission check here.
-  2) `CanActivateChild`: check to enable child routes
-  3) `CanDeactivate` - to stop user from moving away from the route
-  4) `Resolve`: pre-fetching component data
-    - resolver's result will be available in ActivatedRoute.data
-
+    1) `CanActivate`: we can have permission check here.
+    2) `CanActivateChild`: check to enable child routes
+    3) `CanDeactivate` - to stop user from moving away from the route
+    4) `Resolve`: pre-fetching component data
+      - resolver's result will be available in ActivatedRoute.data
 
 ## Best practices:
--  AppRoutingModule
-    - configure the router in a separate, top-level module that is dedicated to routing and imported by the root AppModule.  - `RouterModule.forRoot`
-      - Only register top-level routes here,
-- Module-level Routes
-  - imported in module files.
-  - modules should have their own routing configuration - `RouterModule.forChild`
-- Lazy loading routes using `loadChildren` prop
-- Organize guards and resolvers.
-  - module specific ones should reside inside module folders.
+    -  AppRoutingModule
+        - configure the router in a separate, top-level module that is dedicated to routing and imported by the root AppModule.  - `RouterModule.forRoot`
+          - Only register top-level routes here,
+    - Module-level Routes
+      - imported in module files.
+      - modules should have their own routing configuration - `RouterModule.forChild`
+    - Lazy loading routes using `loadChildren` prop
+    - Organize guards and resolvers.
+      - module specific ones should reside inside module folders.
