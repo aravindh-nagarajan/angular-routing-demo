@@ -1,11 +1,10 @@
 ## Initial steps:
-    In order to use the Router, you must first register the RouterModule from the @angular/router package. 
-    Define an array of routes, appRoutes, and pass them to the RouterModule.forRoot() method.
+    In order to use the Router, 
+    you must first register the RouterModule from the @angular/router package. 
+    Define an array of appRoutes, and pass them to the RouterModule.forRoot() method.
 
 ### Route
-    `const routes: Routes=[];`
-
-    Inside the routes array, there are two main properties:
+    there are two main properties:
 
     a) path
     b) component
@@ -20,6 +19,7 @@
 
 ### RouterOutlet:
     The <router-outlet> where router displays views.
+     - Multiple router outlets can be used.
 
 ### RouterLink:
     - The routerLink is what turns user clicks into router navigations. 
@@ -50,11 +50,24 @@
         });
     ```
 
+## Route guards
+  - To control access to current path and its children
+  - To resolve data
 
-## Best practices:
-- Seperate Routing from AppModule by having them in AppRoutingModule.
-- module with its own routing configuration
+  1) `CanActivate`: we can have permission check here.
+  2) `CanActivateChild`: check to enable child routes
+  3) `CanDeactivate` - to stop user from moving away from the route
+  4) `Resolve`: pre-fetching component data
+    - resolver's result will be available in ActivatedRoute.data
+
+
+### Best practices:
 -  AppRoutingModule
-    - configure the router in a separate, top-level module that is dedicated to routing and imported by the root AppModule.
-
-
+    - configure the router in a separate, top-level module that is dedicated to routing and imported by the root AppModule.  - `RouterModule.forRoot`
+      - Only register top-level routes here,
+- Module-level Routes
+  - imported in module files.
+  - modules should have their own routing configuration - `RouterModule.forChild`
+- Lazy loading routes using `loadChildren` prop
+- Organize guards and resolvers.
+  - module specific ones should reside inside module folders.
