@@ -1,27 +1,60 @@
-# RouteGuardDemoApp
+## Initial steps:
+    In order to use the Router, you must first register the RouterModule from the @angular/router package. 
+    Define an array of routes, appRoutes, and pass them to the RouterModule.forRoot() method.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.1.
+### Route
+    `const routes: Routes=[];`
 
-## Development server
+    Inside the routes array, there are two main properties:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+    a) path
+    b) component
 
-## Code scaffolding
+### Wildcard route
+    - To handle invalid routes
+        `{path: '**', Component: 'PageNotFoundComponent}`
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Default route
+    - The solution is to add a `redirectTo` route that translates the initial relative URL ('') to the desired default path.
+    - A redirect route requires a pathMatch property
 
-## Build
+### RouterOutlet:
+    The <router-outlet> where router displays views.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+### RouterLink:
+    - The routerLink is what turns user clicks into router navigations. 
 
-## Running unit tests
+    - The RouterLinkActive directive toggles css classes for active RouterLink 
+    bindings based on the current RouterState. - it accepts space-delimited string of CSS classes
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+    - [routerLinkActiveOptions] input binding with the { exact: true } expression. By using { exact: true }, 
+    a given RouterLink will only be active if its URL is an exact match to the current URL instead of making all `parent-child` active.
 
-## Running end-to-end tests
+### data object in router:
+    - Only the relevant component can get its data object from 'ActivatedRoute`.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+- router.navigate for manual routing (similar to $state.go)
 
-## Further help
+### ActivatedRoute
+    - The route path and parameters are available through an injected router service called the ActivatedRoute.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+### Router Events
+    There are Router events we can listen to. (`NavigationStart`) is an example. we can import the event from router package,
+    subscribe to router.events and filter based on the event instance that we interested in.
+
+    ```
+        this.router.events.subscribe(e => {
+        if (e instanceof NavigationStart) {
+            ... // e => { id, url}
+        }
+        });
+    ```
+
+
+## Best practices:
+- Seperate Routing from AppModule by having them in AppRoutingModule.
+- module with its own routing configuration
+-  AppRoutingModule
+    - configure the router in a separate, top-level module that is dedicated to routing and imported by the root AppModule.
+
+
