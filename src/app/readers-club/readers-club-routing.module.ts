@@ -9,6 +9,7 @@ import { ReadersClubComponent } from './readers-club/readers-club.component';
 import { ReadersGuard } from '../guards/readers.guard';
 import { ReaderLocationsGuard } from '../guards/reader-locations.guard';
 import { ReaderDetailResolverService } from './resolvers/reader-detail-resolver.service';
+import { ReadersClubResolverService } from './resolvers/readers-club-resolver.service';
 
 const appRoutes: Routes = [
   {
@@ -16,6 +17,9 @@ const appRoutes: Routes = [
     component: ReadersClubComponent,
     canActivate: [ReadersClubGuard],
     canActivateChild: [ReadersClubGuard],
+    resolve: {
+      fromParent: ReadersClubResolverService,
+    },
     children: [
       {
         path: 'readers',
